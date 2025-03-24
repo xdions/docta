@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Docta</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <div class="dropdowns-container">
+        <h1>Docta</h1>
+        
+        <div class="dropdown-wrapper">
+            <label for="conditions">Select Condition <span class="dropdown-icon">▼</span></label>
+            <select id="conditions" class="dropdown"></select>
+        </div>
+
+        <div class="dropdown-wrapper" id="subtype-wrapper" style="display:none;">
+            <label for="condition-subtypes">Select Condition Subtype <span class="dropdown-icon">▼</span></label>
+            <select id="condition-subtypes" class="dropdown"></select>
+        </div>
+
+        <div id="condition-details" class="details-box" style="display:none;">
+            <h3>Details</h3>
+            <p id="condition-explanation"></p>
+            <p id="condition-medications"></p>
+            <p id="condition-dosage" class="highlighted-text"></p>
+        </div>
+        
+        <div class="dropdown-wrapper">
+            <label for="drug-categories">Select Drug Category <span class="dropdown-icon">▼</span></label>
+            <select id="drug-categories" class="dropdown"></select>
+        </div>
+
+        <div class="dropdown-wrapper" id="drug-subtype-wrapper" style="display:none;">
+            <label for="drug-subtypes">Select Drug Subtype <span class="dropdown-icon">▼</span></label>
+            <select id="drug-subtypes" class="dropdown"></select>
+        </div>
+
+        <div id="drug-details" class="details-box" style="display:none;">
+            <h3>Drug Details</h3>
+            <p id="drug-name"></p>
+            <p id="drug-condition"></p>
+            <p id="drug-dosage" class="highlighted-text"></p>
+            <p id="drug-sideEffects"></p>
+        </div>
+
+        <div class="dropdown-wrapper">
+            <label for="mse-categories">Select Mental State Examination <span class="dropdown-icon">▼</span></label>
+            <select id="mse-categories" class="dropdown"></select>
+        </div>
+
+        <div id="mse-details" class="details-box" style="display:none;">
+            <h3>Mental State Examination Details</h3>
+            <div id="mse-parameters"></div>
+        </div>
+
+        <div class="dropdown-wrapper">
+            <label for="history-taking">Select History Taking <span class="dropdown-icon">▼</span></label>
+            <select id="history-taking" class="dropdown"></select>
+        </div>
+
+        <div id="history-taking-details" class="details-box" style="display:none;">
+            <h3>History Taking Details</h3>
+            <div id="history-taking-parameters"></div>
+        </div>
+
+        <div class="dropdown-wrapper" id="history-taking-subtype-wrapper" style="display:none;">
+            <label for="history-taking-subtypes">Select History Taking Subtype <span class="dropdown-icon">▼</span></label>
+            <select id="history-taking-subtypes" class="dropdown"></select>
+        </div>
+    </div>
+    <script src="js/app.js"></script>
+</body>
+</html>
