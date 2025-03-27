@@ -19,6 +19,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const mseCategoriesDropdown = document.getElementById('mse-categories');
     const mseParameters = document.getElementById('mse-parameters');
     const mseDetails = document.getElementById('mse-details');
+    const mseSubtypesWrapper = document.getElementById('mse-subtype-wrapper');
 
     const historyTakingDropdown = document.getElementById('history-taking');
     const historyTakingSubtypesDropdown = document.getElementById('history-taking-subtypes');
@@ -51,6 +52,11 @@ document.addEventListener('DOMContentLoaded', function() {
             icon.textContent = '▼';
             if (detailsBox) {
                 detailsBox.style.display = 'none';
+            }
+            // Additional check for MSE subtypes wrapper
+            if (dropdownWrapper.id === 'mse-categories-wrapper') {
+                mseSubtypesWrapper.style.display = 'none';
+                mseDetails.style.display = 'none';
             }
         }
     }
