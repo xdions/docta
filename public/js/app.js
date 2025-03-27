@@ -26,10 +26,18 @@ document.addEventListener('DOMContentLoaded', function() {
     const historyTakingParameters = document.getElementById('history-taking-parameters');
     const historyTakingDetails = document.getElementById('history-taking-details');
 
+    const diagnosisDropdown = document.getElementById('diagnosis');
+    const diagnosisSubtypesDropdown = document.getElementById('diagnosis-subtypes');
+    const diagnosisSubtypesWrapper = document.getElementById('diagnosis-subtype-wrapper');
+    const diagnosisDetails = document.getElementById('diagnosis-details');
+    const diagnosisDSM5 = document.getElementById('diagnosis-dsm5');
+    const diagnosisICD11 = document.getElementById('diagnosis-icd11');
+
     let conditionsData = {};
     let drugsData = {};
     let mseData = {};
     let historyTakingData = {};
+    let diagnosisData = {};
 
     // Function to toggle visibility
     function toggleDropdownVisibility(dropdownWrapper, detailsBox) {
@@ -104,6 +112,20 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         })
         .catch(error => console.error('Error fetching history taking:', error));
+
+    // Fetch diagnosis data and populate the dropdown
+    fetch('/api/diagnosis')
+        .then(response => response.json())
+        .then(data => {
+            diagnosisData = data;
+            for (const key in data) {
+                const option = document.createElement('option');
+                option.value = key;
+                option.textContent = key;
+                diagnosisDropdown.appendChild(option);
+            }
+        })
+        .catch(error => console.error('Error fetching diagnosis:', error));
 
     // Handle condition selection and populate subtypes
     conditionsDropdown.addEventListener('change', function() {
@@ -256,6 +278,43 @@ document.addEventListener('DOMContentLoaded', function() {
             historyTakingDetails.style.display = 'block';
         } else {
             historyTakingDetails.style.display = 'none';
+        }
+    });
+
+    // Handle diagnosis type selection and populate subtypes
+    diagnosisDropdown.addEventListener('change', function() {
+        const selectedDiagnosis = diagnosisDropdown.value;
+        diagnosisSubtypesDropdown.innerHTML = ''; // Clear previous options
+        diagnosisDSM5.textContent = '';
+        diagnosisICD11.textContent = '';
+        diagnosisDetails.style.display = 'none';
+
+        if (selectedDiagnosis && diagnosisData[selectedDiagnosis]) {
+            const subtypes = diagnosisData[selectedDiagnosis];
+            for (const subtype in subtypes) {
+                const option = document.createElement('option');
+                option.value = subtype;
+                option.textContent = subtype;
+                diagnosisSubtypesDropdown.appendChild(option);
+            }
+            diagnosisSubtypesWrapper.style.display = 'block';
+        } else {
+            diagnosisSubtypesWrapper.style.display = 'none';
+        }
+    });
+
+    // Handle diagnosis subtype selection and display details
+    diagnosisSubtypesDropdown.addEventListener('change', function() {
+        const selectedDiagnosis = diagnosisDropdown.value;
+        const selectedSubtype = diagnosisSubtypesDropdown.value;
+
+        if (selectedDiagnosis && selectedSubtype && diagnosisData[selectedDiagnosis][selectedSubtype]) {
+            const details = diagnosisData[selectedDiagnosis][selectedSubtype];
+            diagnosisDSM5.textContent = `DSM-5: ${details['DSM-5']}`;
+            diagnosisICD11.textContent = `ICD-11: ${details['ICD-11']}`;
+            diagnosisDetails.style.display = 'block';
+        } else {
+            diagnosisDetails.style.display = 'none';
         }
     });
 

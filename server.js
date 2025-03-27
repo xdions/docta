@@ -1,13 +1,14 @@
 const express = require('express');
 const cors = require('cors');
 const app = express();
-const port = process.env.PORT || 3008; // Use PORT from environment variables
+const port = process.env.PORT || 3009; // Use PORT from environment variables
 
 // Import data
 const drugs = require('./data/drugs');
 const conditions = require('./data/conditions');
 const mse = require('./data/mse');
 const historyTaking = require('./data/historyTaking');
+const diagnosis = require('./data/diagnosis');
 
 // Enable CORS for all routes
 app.use(cors());
@@ -36,6 +37,11 @@ app.get('/api/mse', (req, res) => {
 
 app.get('/api/historyTaking', (req, res) => {
   res.json(historyTaking);
+});
+
+// Route to serve diagnosis data
+app.get('/api/diagnosis', (req, res) => {
+  res.json(diagnosis);
 });
 
 // Start the server

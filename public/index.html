@@ -15,7 +15,7 @@
             <select id="conditions" class="dropdown"></select>
         </div>
 
-        <div class="dropdown-wrapper" id="subtype-wrapper" style="display:none;">
+        <div class="dropdown-wrapper subtype-border" id="subtype-wrapper" style="display:none;">
             <label for="condition-subtypes">Select Condition Subtype <span class="dropdown-icon">▼</span></label>
             <select id="condition-subtypes" class="dropdown"></select>
         </div>
@@ -32,7 +32,7 @@
             <select id="drug-categories" class="dropdown"></select>
         </div>
 
-        <div class="dropdown-wrapper" id="drug-subtype-wrapper" style="display:none;">
+        <div class="dropdown-wrapper subtype-border" id="drug-subtype-wrapper" style="display:none;">
             <label for="drug-subtypes">Select Drug Subtype <span class="dropdown-icon">▼</span></label>
             <select id="drug-subtypes" class="dropdown"></select>
         </div>
@@ -50,6 +50,11 @@
             <select id="mse-categories" class="dropdown"></select>
         </div>
 
+        <div class="dropdown-wrapper subtype-border" id="mse-subtype-wrapper" style="display:none;">
+            <label for="mse-subtypes">Select MSE Subtype <span class="dropdown-icon">▼</span></label>
+            <select id="mse-subtypes" class="dropdown"></select>
+        </div>
+
         <div id="mse-details" class="details-box" style="display:none;">
             <h3>Mental State Examination Details</h3>
             <div id="mse-parameters"></div>
@@ -60,16 +65,35 @@
             <select id="history-taking" class="dropdown"></select>
         </div>
 
+        <div class="dropdown-wrapper subtype-border" id="history-taking-subtype-wrapper" style="display:none;">
+            <label for="history-taking-subtypes">Select History Taking Subtype <span class="dropdown-icon">▼</span></label>
+            <select id="history-taking-subtypes" class="dropdown"></select>
+        </div>
+
         <div id="history-taking-details" class="details-box" style="display:none;">
             <h3>History Taking Details</h3>
             <div id="history-taking-parameters"></div>
         </div>
 
-        <div class="dropdown-wrapper" id="history-taking-subtype-wrapper" style="display:none;">
-            <label for="history-taking-subtypes">Select History Taking Subtype <span class="dropdown-icon">▼</span></label>
-            <select id="history-taking-subtypes" class="dropdown"></select>
+        <div class="dropdown-wrapper diagnosis-wrapper">
+            <label for="diagnosis">DSM-5 & ICD-11 <span class="dropdown-icon">▼</span></label>
+            <select id="diagnosis" class="dropdown diagnosis-dropdown"></select>
+        </div>
+
+        <div class="dropdown-wrapper subtype-border" id="diagnosis-subtype-wrapper" style="display:none;">
+            <label for="diagnosis-subtypes">Select Diagnosis Subtype <span class="dropdown-icon">▼</span></label>
+            <select id="diagnosis-subtypes" class="dropdown"></select>
+        </div>
+
+        <div id="diagnosis-details" class="details-box" style="display:none;">
+            <h3>Diagnosis Details</h3>
+            <p id="diagnosis-dsm5"></p>
+            <p id="diagnosis-icd11"></p>
         </div>
     </div>
+    <footer class="footer">
+        <p>Powered by <span class="brand-name">xdion</span></p>
+    </footer>
     <script src="js/app.js"></script>
 </body>
 </html>

@@ -5,6 +5,7 @@
     padding: 20px;
     background-color: #f0f2f5;
     font-family: 'Arial', sans-serif;
+    position: relative; /* To position the diagnosis dropdown */
 }
 
 h1 {
@@ -22,6 +23,10 @@ h1 {
     background-color: #fff;
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
     cursor: pointer;
+}
+
+.dropdown-wrapper.subtype-border {
+    border: 2px solid #FFA500; /* Different border color for subtypes */
 }
 
 .dropdown-wrapper label {
@@ -87,9 +92,74 @@ h1 {
     font-weight: bold;
 }
 
+/* Diagnosis dropdown styles */
+.diagnosis-wrapper {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: auto;
+    max-width: none;
+    padding: 10px;
+    border: 2px solid red;
+    border-radius: 5px;
+    background-color: #fff;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.diagnosis-wrapper label {
+    color: red;
+}
+
+.diagnosis-dropdown {
+    width: auto;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 12px;
+    background-color: #fff;
+    transition: border-color 0.3s;
+    display: none; /* Initially hidden */
+}
+
+.diagnosis-dropdown:hover {
+    border-color: #888;
+}
+
+.diagnosis-dropdown:focus {
+    outline: none;
+    border-color: red;
+}
+
+/* Footer styles */
+.footer {
+    margin-top: 40px;
+    padding: 10px 0;
+    background-color: #007bff;
+    color: white;
+    width: 100%;
+    text-align: center;
+    font-size: 14px;
+}
+
+.footer .brand-name {
+    font-weight: bold;
+    color: #ff6347; /* Tomato color */
+}
+
 /* Mobile optimization */
 @media (max-width: 600px) {
     .dropdown-wrapper, .details-box {
         width: 90%;
+    }
+
+    .diagnosis-wrapper {
+        top: 10px;
+        right: 10px;
+        padding: 5px;
+    }
+
+    .diagnosis-dropdown {
+        padding: 5px;
+        font-size: 10px;
     }
 }

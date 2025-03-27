@@ -1,5 +1,5 @@
 const conditions ={
-    "Neurodevelopmental Disorders": {
+  "Neurodevelopmental Disorders": {
       "Intellectual Disability": {
         "Explanation": "Significant limitations in intellectual functioning and adaptive behavior.",
         "Medications": "Behavioral therapies and educational support. Medications for co-occurring conditions like ADHD or anxiety.",
